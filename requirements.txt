@@ -5,6 +5,7 @@ openai
 openpyxl
 pandas
 sentencepiece
+surya-ocr
 tabulate
 torch
 torchmetrics
