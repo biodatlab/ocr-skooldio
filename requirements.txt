@@ -1,2 +1,11 @@
-openai
+easyocr
 google-cloud-aiplatform
+matplotlib
+openai
+openpyxl
+pandas
+sentencepiece
+tabulate
+torch
+torchmetrics
+transformers
