@@ -7,7 +7,7 @@ from tabulate import tabulate
 
 @dataclass
 class EvaluationReport:
-    """"
+    """ "
     Store the evaluation report, CER, and accuracy.
     """
 
@@ -85,7 +85,7 @@ if __name__ == "__main__":
         "deleion",
         "insertionn",
         "correct",
-        "asdfasdfasdfasdfasdfasdfasdf"
+        "asdfasdfasdfasdfasdfasdfasdf",
     ]
     labels = ["", "", "text", "substitution", "deletion", "insertion", "correct", "12"]
     report = evaluate(predictions, labels)

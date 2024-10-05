@@ -8,7 +8,6 @@
 OCR เป็นเทคโนโลยีที่สำคัญสำหรับการแปลงเอกสารประเภทต่างๆ เช่น เอกสารกระดาษที่สแกน ไฟล์ PDF หรือภาพที่ถ่ายด้วยกล้องดิจิทัล ให้เป็นข้อมูลที่สามารถแก้ไขและค้นหาได้
 ที่เก็บข้อมูลนี้นำเสนอชุดเครื่องมือและทรัพยากรเพื่อช่วยให้คุณสำรวจและทำความเข้าใจเทคนิค OCR ต่างๆ
 
-
 ## เทคนิคที่ครอบคลุม
 
 ในบทเรียน เราจะได้ทดลองเทคนิค OCR ที่หลากหลายโดยใช้เครื่องมือและโมเดลต่อไปนี้:
@@ -61,7 +60,7 @@ get_completion("Why is sky blue?")
 
 <img width="400" src="assets/vertex_ai.png">
 
-- จากนั้นกลับไปที่ https://console.cloud.google.com/  สร้าง Project ใหม่ถ้ายังไม่เคยสร้าง
+- จากนั้นกลับไปที่ https://console.cloud.google.com/ สร้าง Project ใหม่ถ้ายังไม่เคยสร้าง
 - เข้าไปยัง APIs & Services และกดปุ่ม "+ Create Credentials > Service Account" เพื่อสร้าง Credential ใหม่ ในข้อ "Grant this service account access" ให้เลือก Vertex AI Administrator และเพิ่ม Cloud Vision API
 - เมื่อสร้างเสร็จเรียบร้อย กลับมาที่หน้า Service Account และไปที่หัวข้อ Keys จากนั้นกด Add Key > Create new key เพื่อสร้าง JSON ไฟล์
 - จากนั้นไฟล์จะถูกดาวน์โหลดเข้ามาในเครื่อง และเราสามารถใช้ Python ในการเรียกใช้ Gemini ได้ดังนี้
