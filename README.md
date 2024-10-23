@@ -142,3 +142,25 @@ user_prompt = "What is 1 + 1?"
 system_prompt = "You are a helpful assistant doing as the given prompt."
 get_model_response(user_prompt, system_prompt)
 ```
+
+## วิธีสร้างรัน streamlit สำหรับการทดสอบโมเดล
+
+- รันไฟล์ `notebooks/05_streamlit_visualiztion.py` ด้วยคำสั่ง
+
+```sh
+streamlit run notebooks/05_streamlit_visualization.py
+```
+
+- จากนั้นโปรแกรมจะเปิดหน้าเว็บให้เราโดยอัตโนมัติเพื่อให้เราทดสอบโมเดลได้
+
+<img width="500" src="assets/streamlit_idle.png">
+
+- อัพโหลดไฟล์รูปของเอกสารที่ต้องการทดสอบ
+
+<img width="500" src="assets/streamlit_uploaded.png">
+
+- กดปุ่ม "Run" เพื่อทำการ detect ข้อความในรูป และ รันโมเดล OCR เพื่ออ่านข้อความในรูป
+
+\* หมายเหตุ: หากรูปที่อัพโหลดเป็นรูปของข้อความที่ถูกตัดออกมาจากเอกสารแล้ว สามารถติ๊กเลือก "Recognition Only" เพื่อทำ OCR ได้เลย
+
+<img width="500" src="assets/streamlit_predicted.png">
