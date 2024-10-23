@@ -78,7 +78,7 @@ recognition_only = st.checkbox(
     "Recognition Only", value=True, help="Only recognize text in the image"
 )
 
-classify_button = st.button("Classify")
+classify_button = st.button("Run")
 
 ###############
 # Predictions #
