@@ -49,7 +49,7 @@ pip install -r requirements.txt
 - ในหน้า API keys ให้คลิกปุ่ม "Create new secret key" แนะนำตั้งชื่อให้กับ API key ของคุณ การตั้งชื่อไม่บังคับ แต่แนะนำให้ตั้งเพื่อจำได้ง่าย จากนั้นระบบจะแสดง API key ของคุณ ให้คัดลอกและเก็บไว้ในที่ปลอดภัย (สำคัญ: คุณจะเห็น API key นี้ครั้งเดียวเท่านั้น ถ้าคุณทำหาย จะต้องสร้างใหม่)
 - เมื่อคัดลอก API key เรียบร้อยแล้ว ให้คลิก "Done" จากนั้นจะสามารถใช้ API key นี้ในการเข้าถึงบริการต่างๆ ของ OpenAI ผ่าน API ได้แล้ว
 
-<img width="400" src="assets/chatgpt.png">
+<img width="700" src="assets/chatgpt.png">
 
 หลังจากได้ API key แล้วเราสามารถเรียกใช้ ChatGPT ผ่าน Python ได้ด้วยคำสั่ง
 
@@ -76,7 +76,7 @@ get_completion("Why is sky blue?")
 - จากนั้น Enable Vertex AI service เพื่อให้สามารถใช้งานโมเดล Gemini ได้ ถ้าสนใจเล่นก่อนให้กดไปในแถบ "Freeform" เพื่อทดลองเล่นก่อนได้
 - จากนั้น Enable Cloud Vision API ที่ https://cloud.google.com/vision?hl=en เพื่อเปิดใช้งาน OCR
 
-<img width="400" src="assets/vertex_ai.png">
+<img width="700" src="assets/vertex_ai.png">
 
 - จากนั้นกลับไปที่ https://console.cloud.google.com/ สร้าง Project ใหม่ถ้ายังไม่เคยสร้าง
 - เข้าไปยัง APIs & Services และกดปุ่ม "+ Create Credentials > Service Account" เพื่อสร้าง Credential ใหม่ ในข้อ "Grant this service account access" ให้เลือก Vertex AI Administrator และเพิ่ม Cloud Vision API
@@ -161,14 +161,14 @@ streamlit run notebooks/05_streamlit_visualization.py
 
 - จากนั้นโปรแกรมจะเปิดหน้าเว็บให้เราโดยอัตโนมัติเพื่อให้เราทดสอบโมเดลได้
 
-<img width="500" src="assets/streamlit_idle.png">
+<img width="1000" src="assets/streamlit_idle.png">
 
 - อัพโหลดไฟล์รูปของเอกสารที่ต้องการทดสอบ
 
-<img width="500" src="assets/streamlit_uploaded.png">
+<img width="1000" src="assets/streamlit_uploaded.png">
 
 - กดปุ่ม "Run" เพื่อทำการ detect ข้อความในรูป และ รันโมเดล OCR เพื่ออ่านข้อความในรูป
 
 \* หมายเหตุ: หากรูปที่อัพโหลดเป็นรูปของข้อความที่ถูกตัดออกมาจากเอกสารแล้ว สามารถติ๊กเลือก "Recognition Only" เพื่อทำ OCR ได้เลย
 
-<img width="500" src="assets/streamlit_predicted.png">
+<img width="700" src="assets/streamlit_predicted.png">
