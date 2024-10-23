@@ -1,0 +1,7 @@
+train: ../assets/YOLOv8_ocr/train
+val: ../assets/YOLOv8_ocr/val
+test: ../assets/YOLOv8_ocr/test
+
+nc: 25
+
+names: ['จำนวน (cylinders)', 'น้ำหนักรถ (unladen_weight)', 'เลขถังแก๊ส (fuel_tank_number)', 'แรงม้า (horse_power)', 'สี (color)', 'แบบ (model)', 'น้ำหนักบรรทุก/น้ำหนักเพลา (load_capacity)', 'เลขตัวรถ (chassis_number)', 'ยี่ห้อเครื่องยนต์ (engine_manufacturer)', 'ยี่ห้อรถ (manufacturer)', 'ซีซี (cubic_capacity)', 'อยู่ที่ (chassis_location)', 'จังหวัด (car_province)', 'ลักษณะ (body_style)', 'รย (type)', 'วันจดทะเบียน (date_of_registration)', 'ประเภท (vehicle_use)', 'น้ำหนักรวม (gross_weight)', 'เลขเครื่องยนต์ (engine_number)', 'รุ่นปี คศ (year)', 'ที่นั่ง (seats)', 'เลขทะเบียน (registration_no)', 'อยู่ที่ (engine_location)', 'จำนวนเพลาและล้อ (axles_wheels_no)', 'เชื้อเพลิง (fuel_type)']
