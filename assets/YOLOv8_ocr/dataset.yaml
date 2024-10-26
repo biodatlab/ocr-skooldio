@@ -1,6 +1,7 @@
-train: ../assets/YOLOv8_ocr/train
-val: ../assets/YOLOv8_ocr/val
-test: ../assets/YOLOv8_ocr/test
+
+train: train
+val: val
+test: test
 
 nc: 25
 
