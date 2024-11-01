@@ -2,8 +2,12 @@ import os
 import gradio as gr
 from webapp_modules.app import WebApp
 
-assert os.path.exists("models/best.pt"), "Model not found. Please add the model to the models directory. The model should be named best.pt. -> models/best.pt"
-assert os.path.exists("logo.png"), "Logo not found. Please add a logo.png file to the root directory."
+assert os.path.exists(
+    "models/best.pt"
+), "Model not found. Please add the model to the models directory. The model should be named best.pt. -> models/best.pt"
+assert os.path.exists(
+    "logo.png"
+), "Logo not found. Please add a logo.png file to the root directory."
 
 demo = gr.Blocks()
 webapp = WebApp(model_path="models/best.pt")
