@@ -1,5 +1,6 @@
 import json
 import os
+import torch
 import pandas as pd
 from ultralytics import YOLO
 from PIL import Image, ImageDraw
@@ -27,9 +28,10 @@ class CarbookFieldsDetector:
         :param crop_images: Whether to crop the detected objects
         :return: The path to the output image
         """
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         # Predict
         result = self.model.predict(
-            image_path, imgsz=640, conf=0.25, half=True, device="cuda"
+            image_path, imgsz=640, conf=0.25, half=True, device=device
         )
         result = result[0]
 

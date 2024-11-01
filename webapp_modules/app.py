@@ -1,6 +1,6 @@
 import pandas as pd
 from typing import Tuple
-from ..detector import CarbookFieldsDetector
+from .detector import CarbookFieldsDetector
 
 
 class WebApp:
