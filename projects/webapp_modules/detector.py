@@ -2,6 +2,10 @@ import json
 import os
 import torch
 import pandas as pd
+import numpy as np
+from skimage.color import rgb2gray
+from skimage.transform import rotate
+from deskew import determine_skew
 from ultralytics import YOLO
 from PIL import Image, ImageDraw
 from typing import Tuple
@@ -21,7 +25,21 @@ class CarbookFieldsDetector:
         self.recognizer = load_recognizer()
         self.recognizer_processor = load_recognizer_processor()
 
-    def detect(self, image_path: str, crop_images: bool) -> Image:
+    @staticmethod
+    def deskew_image(image: Image) -> Image:
+        """
+
+        """
+        # Convert image to numpy array
+        image = np.array(image)
+        # Convert image to grayscale
+        grey_image = rgb2gray(image)
+        angle = determine_skew(grey_image)
+
+        rotated = rotate(image, angle, resize=True) * 255 # Rotate the image
+        return Image.fromarray(rotated.astype("uint8"))
+
+    def detect(self, image_path: str, deskew_image: bool, crop_image: bool) -> Image:
         """
         Detects cars and books in an image
         :param image_path: The path to the image
@@ -29,9 +47,16 @@ class CarbookFieldsDetector:
         :return: The path to the output image
         """
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        # Load image
+        image = Image.open(image_path)
+
+        # Deskew image
+        if deskew_image:
+            image = self.deskew_image(image)
+
         # Predict
         result = self.model.predict(
-            image_path, imgsz=640, conf=0.25, half=True, device=device
+            image, imgsz=640, conf=0.25, half=True, device=device
         )
         result = result[0]
 
@@ -67,7 +92,7 @@ class CarbookFieldsDetector:
             draw.rectangle([x1, y1, x2, y2], outline="red", width=2)
 
             # Crop image based on bounding box
-            if crop_images:
+            if crop_image:
                 cropped_image = image.crop((x1, y1, x2, y2))
                 predicted_name = predicted_class.replace(" ", "_").replace("/", "_")
                 cropped_path = os.path.join(crop_dir, f"{predicted_name}.jpg")
