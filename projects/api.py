@@ -57,9 +57,10 @@ async def detect_fields(file: UploadFile = File(...)):
             shutil.copyfileobj(file.file, buffer)
 
         # Process image
-        drawn_image_path, field_texts, json_path = detector.detect(
+        drawn_image_path, _, json_path = detector.detect(
             image_path=temp_image_path,
-            crop_images=True
+            deskew_image=True,
+            crop_image=True
         )
         
         # Read detection results
