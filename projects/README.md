@@ -8,6 +8,8 @@
 gradio webapp.py
 ```
 
+หลังจากทีรันแล้วไปที่ `http://localhost:7860/` เพื่อใช้ web application
+
 ## Evaluation Notebook
 
 สามารถดูโค้ดสรุปการใช้ detection model เพื่ออ่านกล่องข้อความและส่งให้ recognizer ได้ใน `end_to_end.ipynb`
