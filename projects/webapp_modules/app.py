@@ -8,9 +8,11 @@ class WebApp:
         self.detector = CarbookFieldsDetector(detector_model_path=model_path)
 
     def detect_fields(
-        self, image_path: str, crop_images: bool = True
+        self, image_path: str, deskew_image: bool = True, crop_image: bool = True
     ) -> Tuple[str, pd.DataFrame, str]:
         boundaries_image_path, field_texts_dataframe, json_path = self.detector.detect(
-            image_path=image_path, crop_images=crop_images
+            image_path=image_path,
+            deskew_image=deskew_image,
+            crop_image=crop_image
         )
         return boundaries_image_path, field_texts_dataframe, json_path

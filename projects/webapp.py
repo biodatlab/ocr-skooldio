@@ -31,7 +31,10 @@ with demo:
         )
         gr.Interface(
             fn=webapp.detect_fields,
-            inputs=gr.Image(type="filepath", label="Image"),
+            inputs=[
+                gr.Image(type="filepath", label="Image"),
+                gr.Checkbox(label="deskew"),
+            ],
             outputs=[
                 "image",
                 gr.DataFrame(label="Results", headers=["Field", "Text"]),
