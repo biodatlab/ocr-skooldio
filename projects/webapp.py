@@ -1,16 +1,24 @@
 import os
 import gradio as gr
-from .app import WebApp
+from webapp_modules.app import WebApp
 
+MODEL_PATH = "models/best.pt"
+LOGO_PATH = "logo.png"
 
-class BlockInterfaces:
-    def __init__(self, model_path: str):
-        self.app = WebApp(model_path=model_path)
+assert os.path.exists(
+    "models/best.pt"
+), "Model not found. Please add the model to the models directory. The model should be named best.pt. -> models/best.pt"
+assert os.path.exists(
+    LOGO_PATH
+), "Logo not found. Please add a logo.png file to the root directory."
 
-    def field_detection_interface(self):
+demo = gr.Blocks()
+webapp = WebApp(model_path="models/best.pt")
+
+with demo:
+    with gr.Tab(label="Field Detector"):
         # Show logo if it exists
-        if os.path.exists("./logo.png"):
-            gr.Image(value="./logo.png", show_label=False, container=False, width=400)
+        gr.Image(value=LOGO_PATH, show_label=False, container=False, width=400)
 
         gr.Markdown(
             """
@@ -22,8 +30,11 @@ class BlockInterfaces:
             """
         )
         gr.Interface(
-            fn=self.app.detect_fields,
-            inputs=gr.Image(type="filepath", label="Image"),
+            fn=webapp.detect_fields,
+            inputs=[
+                gr.Image(type="filepath", label="Image"),
+                gr.Checkbox(label="deskew"),
+            ],
             outputs=[
                 "image",
                 gr.DataFrame(label="Results", headers=["Field", "Text"]),
@@ -31,3 +42,5 @@ class BlockInterfaces:
             ],
             allow_flagging="auto",
         )
+
+demo.launch()
